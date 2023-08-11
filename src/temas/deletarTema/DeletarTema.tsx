@@ -8,7 +8,7 @@ import { toastAlerta } from '../../util/toastAlerta'
 function DeletarTema() {
     const [tema, setTema] = useState<Tema>({} as Tema)
 
-    let navigate = useNavigate()
+    const navigate = useNavigate()
 
     const { id } = useParams<{ id: string }>()
 

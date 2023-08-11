@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import Tema from '../../models/Tema';
@@ -8,7 +8,7 @@ import { toastAlerta } from '../../util/toastAlerta';
 function FormularioTema() {
   const [tema, setTema] = useState<Tema>({} as Tema);
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { id } = useParams<{ id: string }>();
 

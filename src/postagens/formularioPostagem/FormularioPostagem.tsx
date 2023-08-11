@@ -6,8 +6,9 @@ import Tema from '../../models/Tema';
 import { buscar, atualizar, cadastrar } from '../../services/Service';
 import { toastAlerta } from '../../util/toastAlerta';
 
-  function FormularioPostagem() {
-  let navigate = useNavigate();
+
+function FormularioPostagem() {
+  const navigate = useNavigate();
 
   const { id } = useParams<{ id: string }>();
 

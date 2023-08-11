@@ -13,7 +13,6 @@ import FormularioTema from './temas/formularioTema/FormularioTema';
 import DeletarTema from './temas/deletarTema/DeletarTema';
 import ListaPostagens from './postagens/listaPostagens/ListaPostagens';
 import FormularioPostagem from './postagens/formularioPostagem/FormularioPostagem';
-
 import Perfil from './paginas/perfil/Perfil';
 import DeletarPostagem from './postagens/deletarPostagem/DeletarPostagem';
 
