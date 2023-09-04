@@ -8,15 +8,39 @@ interface CardTemaProps {
 
 function CardTemas({tema}: CardTemaProps) {
   return (
-    <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-      <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>Tema</header>
-      <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.descricao}</p>
-      <div className="flex">
-        <Link to={`/editarTema/${tema.id}`} className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
-          <button>Editar</button>
+    <div className="relative mt-6 flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+      <div className="p-6">
+       
+        <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+          {tema.descricao}
+        </h5>
+      </div>
+      <div className="flex h-20 p-6 pt-0">
+        <Link
+          to={`/editarTema/${tema.id}`}
+        >
+          <button
+            className="flex select-none items-center gap-2 rounded-lg py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-blue-700 transition-all hover:bg-pink-500/10 active:bg-rose-400 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+            data-ripple-dark="true"
+          >
+            Editar serviço
+            
+          </button>
         </Link>
-        <Link to={`/deletarTema/${tema.id}`} className='text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
-          <button>Deletar</button>
+
+        <Link
+          to={`/deletarTema/${tema.id}`}
+          
+        >
+          <button
+            className="flex select-none items-center gap-2 rounded-lg py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-rose-400 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+            data-ripple-dark="true"
+          >
+            Deletar serviço
+          
+          </button>
         </Link>
       </div>
     </div>

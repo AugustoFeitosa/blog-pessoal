@@ -8,7 +8,7 @@ import { toastAlerta } from '../../util/toastAlerta';
 function FormularioTema() {
   const [tema, setTema] = useState<Tema>({} as Tema);
 
-  const navigate = useNavigate();
+  let navigate = useNavigate();
 
   const { id } = useParams<{ id: string }>();
 
@@ -25,76 +25,73 @@ function FormularioTema() {
 
   useEffect(() => {
     if (id !== undefined) {
-      buscarPorId(id)
+      buscarPorId(id);
     }
-  }, [id])
+  }, [id]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setTema({
       ...tema,
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
 
-    console.log(JSON.stringify(tema))
+    console.log(JSON.stringify(tema));
   }
 
   async function gerarNovoTema(e: ChangeEvent<HTMLFormElement>) {
-    e.preventDefault()
+    e.preventDefault();
 
     if (id !== undefined) {
       try {
         await atualizar(`/temas`, tema, setTema, {
           headers: {
-            'Authorization': token
-          }
-        })
+            Authorization: token,
+          },
+        });
 
-        toastAlerta('Tema atualizado com sucesso', 'sucesso')
-        retornar()
-
+        toastAlerta('Tema atualizado com sucesso','sucesso');
+        retornar();
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          toastAlerta('O token expirou, favor logar novamente', 'info')
-          handleLogout()
+          toastAlerta('O token expirou, favor logar novamente','info');
+          handleLogout();
         } else {
-          toastAlerta('Erro ao atualizar o Tema', 'erro')
+          toastAlerta('Erro ao atualizar o Tema','erro');
         }
-
       }
-
     } else {
       try {
         await cadastrar(`/temas`, tema, setTema, {
           headers: {
-            'Authorization': token
-          }
-        })
+            Authorization: token,
+          },
+        });
 
-        toastAlerta('Tema cadastrado com sucesso', 'sucesso')
-
+        toastAlerta('Tema cadastrado com sucesso','sucesso');
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          toastAlerta('O token expirou, favor logar novamente', 'info')
-          handleLogout()
+          toastAlerta('O token expirou, favor logar novamente','info');
+          handleLogout();
         } else {
-          toastAlerta('Erro ao cadastrado o Tema', 'erro')
+          toastAlerta('Erro ao cadastrar o Tema','erro');
         }
       }
     }
 
-    retornar()
+    retornar();
   }
 
   function retornar() {
-    navigate("/temas")
+    navigate('/temas');
   }
 
   useEffect(() => {
     if (token === '') {
-      toastAlerta('Você precisa estar logado', 'info');
+      toastAlerta('Você precisa estar logado','info');
       navigate('/login');
     }
   }, [token]);
+
 
   return (
     <div className="container flex flex-col items-center justify-center mx-auto">

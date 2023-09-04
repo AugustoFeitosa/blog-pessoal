@@ -18,14 +18,12 @@ function Navbar() {
 
     if(usuario.token !== "") {
       navbarComponent = (
-        <div className='w-full bg-indigo-900 text-white flex justify-center py-4'>
+        <div className='w-full bg-[#ffcc33] text-slate-950 flex justify-center py-4'>
           <div className="container flex justify-between text-lg">
-            <Link to='/home' className='text-2xl font-bold uppercase'>Blog Pessoal</Link>
+            <Link to='/home' className='text-2xl font-bold'>CineVerse</Link>
 
             <div className='flex gap-4'>
               <Link to='/postagens' className='hover:underline'>Postagens</Link>
-              <Link to='/temas' className='hover:underline'>Temas</Link>
-              <Link to='/cadastroTema' className='hover:underline'>Cadastrar tema</Link>
               <Link to='/perfil' className='hover:underline'>Perfil</Link>
               <Link to='' onClick={logout} className='hover:underline'>Sair</Link>
             </div>
