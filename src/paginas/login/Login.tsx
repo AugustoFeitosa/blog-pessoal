@@ -93,7 +93,7 @@ function Login() {
                     <input
                       type="text"
                       placeholder="E-mail"
-                      id="usuario"
+                      name="usuario"
                       className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal"
                       value={usuarioLogin.usuario}
                       onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -103,7 +103,7 @@ function Login() {
                     <input
                       placeholder="Senha"
                       type="password"
-                      id="senha"
+                      name="senha"
                       className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal"
                       value={usuarioLogin.senha}
                       onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -136,6 +136,7 @@ function Login() {
                           height="24px"
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
+                          
                         >
                           <path
                             fill="#EA4335 "
